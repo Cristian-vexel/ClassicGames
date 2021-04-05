@@ -1,3 +1,3 @@
 # ClassicGames
 
-<img src="docs/ClassiGames.png"/>
+<img src="docs/ClassiGames.png" width="800"/>
