@@ -48,6 +48,8 @@ public class UserService {
                 return;
             }
         }
+
+        throw new LogInFailException();
     }
 
     public static void checkFieldsAreNotBlank(String username, String password, String role) throws BlankFieldException {
