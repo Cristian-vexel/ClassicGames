@@ -17,7 +17,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         initDirectory();
         UserService.initDatabase();
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("menu.fxml"));
         primaryStage.setTitle("Classic Games - login");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
