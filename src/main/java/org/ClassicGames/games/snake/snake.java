@@ -206,6 +206,13 @@ public class snake {
 
 		snake.add(head);
 
+		Rectangle rect;
+
+		for(int i = 1; i < SnakeConfiguration.getInitialLength(); i++){
+			rect = Game.grow(snake.get(0).getTranslateX(), snake.get(0).getTranslateY());
+			snake.add(rect);
+		}
+
 		timeline.play();
 		running = true;
 	}

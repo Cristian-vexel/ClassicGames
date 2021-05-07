@@ -9,6 +9,8 @@ public class SnakeConfiguration {
 	//private static final int HEIGHT = 15 * BLOCK_SIZE;
 	private static final int WIDTH = 800;
 	private static final int HEIGHT = 600;
+
+	private static int InitialLegth = 3;
 	
 	static Rectangle food;
 
@@ -43,7 +45,10 @@ public class SnakeConfiguration {
 	}
 
 	public static int getWidth() {
-
 		return WIDTH;
+	}
+
+	public static int getInitialLength() {
+		return InitialLegth;
 	}
 }
