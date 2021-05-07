@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -40,6 +41,8 @@ public class snake {
 
     private ObservableList<Node> snake; // snake list
 
+	private Label scoreLab; // label that indicates score
+
     public void GameStarting(MouseEvent event) throws IOException{
         scene = new Scene(create());
 
@@ -53,10 +56,12 @@ public class snake {
     private Parent create() throws IOException { // main function that creates
 		Parent root1 = FXMLLoader.load(getClass().getClassLoader().getResource("SnakeScreen.fxml"));
 
-		Pane root = (Pane) root1.lookup("#panePlay"); // pane on which the snake
+		Pane root2 = (Pane) root1.lookup("#paneOut");
+
+		Pane root = (Pane) root2.lookup("#panePlay"); // pane on which the snake
 														// is going
 
-        Canvas canvas = (Canvas) root.lookup("#canvas"); // canvas for the net
+        Canvas canvas = (Canvas) root2.lookup("#canvas"); // canvas for the net
 
         // setting the net
         GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -75,6 +80,9 @@ public class snake {
 		snake = snakeBody.getChildren();
 
 		Rectangle food = Game.newFood();
+
+		scoreLab = (Label) root1.lookup("#score"); // score label
+		scoreLab.setText("" + score);
 
 		KeyFrame frame = new KeyFrame(Duration.seconds(speed), event -> {
 			if (!running)
@@ -140,10 +148,9 @@ public class snake {
 				}
 
 				Rectangle rect = Game.grow(tail.getTranslateX(), tail.getTranslateY());
-				//rect.getStyleClass().add("snake"); // setting the score if the
-													//// food was eaten
+
 				score += 10;
-				//scoreLab.setText("" + score);
+				scoreLab.setText("" + score);
 
 				snake.add(rect);
 			}
@@ -154,7 +161,7 @@ public class snake {
 		timeline.setCycleCount(Timeline.INDEFINITE);
 		root.getChildren().addAll(food, snakeBody);
 
-        return root1;
+        return root2;
     }
 
     private void stoppingGame() throws IOException { // function stopping the
