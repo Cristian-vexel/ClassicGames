@@ -35,9 +35,9 @@ public class snake {
 	private Direction direction = Direction.RIGHT; // default direction that the
 													// snake goes
 	private boolean moved = false;
-	private boolean running = false;
+	private static boolean running = false;
 
-    private Timeline timeline = new Timeline();
+    private static Timeline timeline = new Timeline();
 
     private int score = 0; // starting score
     private static double speed = 0.1; // default speed
@@ -48,6 +48,7 @@ public class snake {
 	private Label gameOverScoreLab;
 
 	private Pane rootGameOver;
+	private static Pane rootPause;
 
     public void GameStarting(MouseEvent event) throws IOException{
         scene = new Scene(create());
@@ -74,7 +75,11 @@ public class snake {
 		rootGameOver.setVisible(false);
 		gameOverScoreLab = (Label) root2.lookup("#gameOverScoreLabel"); // score label
 
+		rootPause = (Pane) root2.lookup("#pause");
+		rootPause.setVisible(false);
+
 		gameOverMenuController.createGameOverMenu(rootGameOver);
+		pauseMenuController.createPauseMenu(rootPause);
 
         // setting the net
         GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -191,6 +196,20 @@ public class snake {
 		timeline.stop();
 	}
 
+	public void pauseGame() {
+		if(!running)
+			return;
+
+		rootPause.setVisible(true);
+		stopGame();
+	}
+
+	public static void continueGame() {
+		rootPause.setVisible(false);
+		running = true;
+		timeline.play();
+	}
+
 	private void startGame() { // starting the game
 
 		direction = Direction.RIGHT;
@@ -240,13 +259,7 @@ public class snake {
 					direction = Direction.LEFT;
 				break;
 			case ESCAPE:
-				try {
-					stoppingGame();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				//theStage.setScene(menu);
+				pauseGame();
 				break;
 			}
 

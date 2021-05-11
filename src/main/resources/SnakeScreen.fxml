@@ -21,5 +21,10 @@
          <Button fx:id="buttonRetry" text="Play again" prefWidth="800.0" layoutY="390" />
          <Button fx:id="buttonBack"  text="Back" prefWidth="800.0" layoutY="420" />
       </Pane>
+      <Pane fx:id="pause" prefWidth="800.0" prefHeight="650.0" style="-fx-background-color: black; -fx-opacity: 0.92;" >
+         <Label fx:id="pauseLabel" layoutY="250.0" alignment="CENTER" prefWidth="800" style="-fx-font-size: 60; -fx-text-fill: red; -fx-font-weight: bold;" text="Pause" />
+         <Button fx:id="buttonContinue" text="Continue" prefWidth="800.0" layoutY="390" />
+         <Button fx:id="buttonBack"  text="Exit game" prefWidth="800.0" layoutY="420" />
+      </Pane>
    </children>
 </Pane>
