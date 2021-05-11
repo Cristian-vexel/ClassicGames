@@ -11,6 +11,6 @@
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
     </padding>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
-        <Button onMouseClicked="#handleButtonActionSnake" text="Snake"/>
+        <Button onMouseClicked="#handleButtonActionSnake" text="Start Game"/>
     </HBox>
 </GridPane>

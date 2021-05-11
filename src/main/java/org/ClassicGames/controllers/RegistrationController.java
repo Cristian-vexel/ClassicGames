@@ -52,11 +52,11 @@ public class RegistrationController {
     }
 
     @FXML
-    public void handleLoginAction(MouseEvent event) throws IOException {
+    public void handleLoginAction(MouseEvent event) throws IOException{
         try {
             UserService.logIn(usernameField.getText(), passwordField.getText(), (String) role.getValue());
             registrationMessage.setText("Successfully logged in!");
-            switchToGame1Scene(event);
+            MenuController.switchToMenuScene(event);
         } catch (LogInFailException e) {
             registrationMessage.setText(e.getMessage());
         } catch (BlankFieldException e) {
@@ -64,11 +64,4 @@ public class RegistrationController {
         }
     }
 
-    public void switchToGame1Scene(MouseEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getClassLoader().getResource("menu.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root, 800, 600);
-        stage.setScene(scene);
-        stage.show();
-    }
 }

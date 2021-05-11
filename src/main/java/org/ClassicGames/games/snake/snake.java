@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -20,6 +21,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import org.ClassicGames.controllers.*;
 
 public class snake {
     private Stage stage;
@@ -42,6 +45,9 @@ public class snake {
     private ObservableList<Node> snake; // snake list
 
 	private Label scoreLab; // label that indicates score
+	private Label gameOverScoreLab;
+
+	private Pane rootGameOver;
 
     public void GameStarting(MouseEvent event) throws IOException{
         scene = new Scene(create());
@@ -62,6 +68,13 @@ public class snake {
 														// is going
 
         Canvas canvas = (Canvas) root2.lookup("#canvas"); // canvas for the net
+
+		rootGameOver = (Pane) root2.lookup("#gameOver");
+
+		rootGameOver.setVisible(false);
+		gameOverScoreLab = (Label) root2.lookup("#gameOverScoreLabel"); // score label
+
+		gameOverMenuController.createGameOverMenu(rootGameOver);
 
         // setting the net
         GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -167,25 +180,10 @@ public class snake {
     private void stoppingGame() throws IOException { // function stopping the
 														// game
 		stopGame();
-		//theStage.setScene(menu);
-		//stage = new Stage(); // new stage for pop-up window
-		//stage.setResizable(false);
-		//stage.setTitle("Koniec gry");
 
-		//Parent root = (Parent) FXMLLoader.load(getClass().getResource("/fxml/Scores.fxml"));
-
-		//Pane root1 = (Pane) root.lookup("#scores");
-		//buttonOk = (Button) root.lookup("#enterButton");
-		//field = (TextField) root.lookup("#inputField");
-
-		//buttonOk.setOnAction(e -> ButtonClicked(e));
-
-		//Scene scene = new Scene(root1);
-		//scene.getStylesheets().add(css);
-		//stage.setScene(scene);
-		
-			//stage.show();
-		
+		scoreLab.setVisible(false);
+		gameOverScoreLab.setText("Score: " + score);
+		rootGameOver.setVisible(true);
 	}
 
 	private void stopGame() { // 2nd function stopping
@@ -242,7 +240,12 @@ public class snake {
 					direction = Direction.LEFT;
 				break;
 			case ESCAPE:
-				stopGame();
+				try {
+					stoppingGame();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				//theStage.setScene(menu);
 				break;
 			}
