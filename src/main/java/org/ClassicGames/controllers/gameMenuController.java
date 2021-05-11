@@ -12,14 +12,14 @@ import java.io.IOException;
 
 import org.ClassicGames.games.snake.snake;
 
-public class MenuController {
+public class gameMenuController {
 
     public static void switchToMenuScene(MouseEvent event) throws IOException {
         Stage stage;
         Scene scene;
         Parent root;
 
-        root = FXMLLoader.load(MenuController.class.getClassLoader().getResource("menu.fxml"));
+        root = FXMLLoader.load(gameMenuController.class.getClassLoader().getResource("gameMenu.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, 800, 600);
         stage.setScene(scene);

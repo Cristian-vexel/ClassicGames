@@ -18,7 +18,7 @@ public class Main extends Application {
         initDirectory();
         UserService.initDatabase();
         //Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("menu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("gameMenu.fxml"));
         primaryStage.setTitle("Classic Games - login");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();

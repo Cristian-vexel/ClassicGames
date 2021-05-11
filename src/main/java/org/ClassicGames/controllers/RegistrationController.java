@@ -56,7 +56,7 @@ public class RegistrationController {
         try {
             UserService.logIn(usernameField.getText(), passwordField.getText(), (String) role.getValue());
             registrationMessage.setText("Successfully logged in!");
-            MenuController.switchToMenuScene(event);
+            gameMenuController.switchToMenuScene(event);
         } catch (LogInFailException e) {
             registrationMessage.setText(e.getMessage());
         } catch (BlankFieldException e) {

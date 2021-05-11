@@ -30,7 +30,7 @@ public class pauseMenuController {
 
     public static void pauseButtonActionHandler_Back(MouseEvent event){
         try {
-            MenuController.switchToMenuScene(event);
+            gameMenuController.switchToMenuScene(event);
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
