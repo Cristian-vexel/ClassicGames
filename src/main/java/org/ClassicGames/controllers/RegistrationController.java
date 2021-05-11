@@ -21,9 +21,6 @@ import org.ClassicGames.exceptions.UsernameAlreadyExistsException;
 import org.ClassicGames.services.UserService;
 
 public class RegistrationController {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
 
     @FXML
     private Text registrationMessage;
@@ -37,6 +34,18 @@ public class RegistrationController {
     @FXML
     public void initialize() {
         role.getItems().addAll("Client", "Admin");
+    }
+
+    public static void switchToRegistrationScene(MouseEvent event) throws IOException{
+        Stage stage;
+        Scene scene;
+        Parent root;
+
+        root = FXMLLoader.load(RegistrationController.class.getClassLoader().getResource("register.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 800, 600);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

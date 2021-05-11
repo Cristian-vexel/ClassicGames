@@ -10,7 +10,9 @@
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
     </padding>
-    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
-        <Button onMouseClicked="#handleButtonActionSnake" text="Start Game"/>
-    </HBox>
+    <VBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
+        <Button onMouseClicked="#handleButtonActionSnake" prefWidth="100" text="Start Game"/>
+        <Button onMouseClicked="#handleButtonActionLogOut" prefWidth="100"  text="Log Out"/>
+        <Button onMouseClicked="#handleButtonActionExit" prefWidth="100"  text="Exit"/>
+    </VBox>
 </GridPane>

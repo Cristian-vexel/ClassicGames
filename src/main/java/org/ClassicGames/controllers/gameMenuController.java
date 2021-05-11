@@ -32,4 +32,13 @@ public class gameMenuController {
         s.MainStartSnake(event);
     }
 
+    @FXML
+    public void handleButtonActionLogOut(MouseEvent event) throws IOException {
+        RegistrationController.switchToRegistrationScene(event);
+    }
+
+    @FXML
+    public void handleButtonActionExit(MouseEvent event) {
+        System.exit(0);
+    }
 }
