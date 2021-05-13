@@ -5,7 +5,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -19,6 +18,8 @@ import org.ClassicGames.exceptions.BlankFieldException;
 import org.ClassicGames.exceptions.LogInFailException;
 import org.ClassicGames.exceptions.UsernameAlreadyExistsException;
 import org.ClassicGames.services.UserService;
+
+import org.ClassicGames.model.User;
 
 public class RegistrationController {
 
@@ -65,7 +66,10 @@ public class RegistrationController {
         try {
             UserService.logIn(usernameField.getText(), passwordField.getText(), (String) role.getValue());
             registrationMessage.setText("Successfully logged in!");
+
+            User.setLoggedUserRole( (String) role.getValue());
             gameMenuController.switchToMenuScene(event);
+
         } catch (LogInFailException e) {
             registrationMessage.setText(e.getMessage());
         } catch (BlankFieldException e) {

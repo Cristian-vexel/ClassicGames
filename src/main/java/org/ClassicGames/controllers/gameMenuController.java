@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.scene.Node;
@@ -11,6 +12,7 @@ import javafx.scene.Node;
 import java.io.IOException;
 
 import org.ClassicGames.games.snake.snake;
+import org.ClassicGames.model.User;
 
 public class gameMenuController {
 
@@ -24,6 +26,23 @@ public class gameMenuController {
         scene = new Scene(root, 800, 600);
         stage.setScene(scene);
         stage.show();
+
+        Button adminPanelButton = (Button) root.lookup("#adminPanelButton");
+        if(User.getLoggedUserRole() == "Client"){
+            adminPanelButton.setVisible(false);
+            System.out.println("I am Client");
+        }
+
+    }
+
+    @FXML
+    public void handleButtonAdminPanel(MouseEvent event) {
+        try {
+            adminMenuController.switchToAdminMenuScene(event);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     @FXML

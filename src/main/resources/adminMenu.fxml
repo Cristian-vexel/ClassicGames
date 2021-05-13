@@ -6,14 +6,11 @@
 <?import javafx.scene.text.Text?>
 <GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" prefHeight="400" prefWidth="600"
           vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal"
-          fx:controller="org.ClassicGames.controllers.gameMenuController">
+          fx:controller="org.ClassicGames.controllers.adminMenuController">
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
     </padding>
     <VBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
-        <Button fx:id="adminPanelButton" onMouseClicked="#handleButtonAdminPanel" prefWidth="100" text="Admin Panel"/>
-        <Button onMouseClicked="#handleButtonActionSnake" prefWidth="100" text="Start Game"/>
-        <Button onMouseClicked="#handleButtonActionLogOut" prefWidth="100"  text="Log Out"/>
-        <Button onMouseClicked="#handleButtonActionExit" prefWidth="100"  text="Exit"/>
+        <Button onMouseClicked="#handleButtonActionBack" prefWidth="100"  text="Back"/>
     </VBox>
 </GridPane>
