@@ -9,6 +9,7 @@ public class User {
     private String username;
     private String password;
     private String role;
+    private static String loggedUserRole;
 
     public User(String username, String password, String role) {
         this.username = username;
@@ -29,6 +30,14 @@ public class User {
 
     public String getRole() {
         return role;
+    }
+
+    public static String getLoggedUserRole() {
+        return User.loggedUserRole;
+    }
+
+    public static void setLoggedUserRole(String role) {
+        User.loggedUserRole = role;
     }
 
     public void setUsername(String username) {

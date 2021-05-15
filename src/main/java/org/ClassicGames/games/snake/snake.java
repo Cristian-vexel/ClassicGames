@@ -13,7 +13,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -23,6 +22,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import org.ClassicGames.controllers.*;
+import org.ClassicGames.services.FileSystemService;
 
 public class snake {
     private Stage stage;
@@ -40,7 +40,6 @@ public class snake {
     private static Timeline timeline = new Timeline();
 
     private int score = 0; // starting score
-    private static double speed = 0.1; // default speed
 
     private ObservableList<Node> snake; // snake list
 
@@ -51,6 +50,8 @@ public class snake {
 	private static Pane rootPause;
 
     public void GameStarting(MouseEvent event) throws IOException{
+		FileSystemService.loadSettingsFromFile();
+
         scene = new Scene(create());
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -102,7 +103,7 @@ public class snake {
 		scoreLab = (Label) root1.lookup("#score"); // score label
 		scoreLab.setText("" + score);
 
-		KeyFrame frame = new KeyFrame(Duration.seconds(speed), event -> {
+		KeyFrame frame = new KeyFrame(Duration.seconds(1 / SnakeConfiguration.getSpeed()), event -> {
 			if (!running)
 				return;
 
@@ -169,6 +170,8 @@ public class snake {
 
 				score += 10;
 				scoreLab.setText("" + score);
+
+
 
 				snake.add(rect);
 			}
