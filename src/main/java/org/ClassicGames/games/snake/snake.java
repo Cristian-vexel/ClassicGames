@@ -13,7 +13,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -23,6 +22,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import org.ClassicGames.controllers.*;
+import org.ClassicGames.services.FileSystemService;
 
 public class snake {
     private Stage stage;
@@ -50,6 +50,8 @@ public class snake {
 	private static Pane rootPause;
 
     public void GameStarting(MouseEvent event) throws IOException{
+		FileSystemService.loadSettingsFromFile();
+
         scene = new Scene(create());
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();

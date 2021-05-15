@@ -13,6 +13,7 @@ import javafx.scene.Node;
 import java.io.IOException;
 
 import org.ClassicGames.games.snake.SnakeConfiguration;
+import org.ClassicGames.services.FileSystemService;
 
 public class adminMenuController {
 
@@ -36,6 +37,8 @@ public class adminMenuController {
         scene = new Scene(root, 800, 600);
         stage.setScene(scene);
         stage.show();
+
+        FileSystemService.loadSettingsFromFile();
 
         speed = (TextField) root.lookup("#speed");
         speed.setText(String.valueOf(SnakeConfiguration.getSpeed()));
@@ -62,6 +65,8 @@ public class adminMenuController {
         SnakeConfiguration.setInitialLength(Integer.parseInt(initialLength.getText()));
 
         saveMessage.setText("Settings saved");
+
+        FileSystemService.saveSettingsToFile();
     }
 
 }
