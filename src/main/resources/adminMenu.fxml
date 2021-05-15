@@ -4,13 +4,23 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
-<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" prefHeight="400" prefWidth="600"
+<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" prefHeight="600" prefWidth="800"
           vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal"
           fx:controller="org.ClassicGames.controllers.adminMenuController">
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
     </padding>
-    <VBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
-        <Button onMouseClicked="#handleButtonActionBack" prefWidth="100"  text="Back"/>
-    </VBox>
+        <Label text="Speed:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="speed" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+        <Label text="Initial length" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <TextField fx:id="initialLength" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+        <Label text="Greed size" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <TextField fx:id="greedSize" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+        <Text fx:id="saveMessage" GridPane.columnIndex="1" GridPane.rowIndex="5" wrappingWidth="300"/>
+
+        <Button onMouseClicked="#handleButtonActionSave" prefWidth="100"  text="Save" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+        <Button onMouseClicked="#handleButtonActionBack" prefWidth="100"  text="Back" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
 </GridPane>

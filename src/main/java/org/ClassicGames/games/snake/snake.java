@@ -40,7 +40,6 @@ public class snake {
     private static Timeline timeline = new Timeline();
 
     private int score = 0; // starting score
-    private static double speed = 0.1; // default speed
 
     private ObservableList<Node> snake; // snake list
 
@@ -102,7 +101,7 @@ public class snake {
 		scoreLab = (Label) root1.lookup("#score"); // score label
 		scoreLab.setText("" + score);
 
-		KeyFrame frame = new KeyFrame(Duration.seconds(speed), event -> {
+		KeyFrame frame = new KeyFrame(Duration.seconds(1 / SnakeConfiguration.getSpeed()), event -> {
 			if (!running)
 				return;
 
@@ -169,6 +168,8 @@ public class snake {
 
 				score += 10;
 				scoreLab.setText("" + score);
+
+
 
 				snake.add(rect);
 			}

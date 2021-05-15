@@ -38,7 +38,8 @@ public class gameMenuController {
     @FXML
     public void handleButtonAdminPanel(MouseEvent event) {
         try {
-            adminMenuController.switchToAdminMenuScene(event);
+            adminMenuController adminMenu = new adminMenuController();
+            adminMenu.switchToAdminMenuScene(event);
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
