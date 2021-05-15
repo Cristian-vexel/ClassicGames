@@ -7,6 +7,6 @@ module ClassicGames {
 
     opens org.ClassicGames to javafx.fxml;
     opens org.ClassicGames.controllers to javafx.fxml;
-    opens org.ClassicGames.model to com.fasterxml.jackson.databind;
+    opens org.ClassicGames.model to com.fasterxml.jackson.databind, javafx.base;
     exports org.ClassicGames;
 }

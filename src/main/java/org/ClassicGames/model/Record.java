@@ -1,5 +1,10 @@
 package org.ClassicGames.model;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 import java.util.Objects;
 
 public class Record {
@@ -11,6 +16,11 @@ public class Record {
         return "Record{" +
                 "username='" + username + '\'' +
                 '}';
+    }
+
+    public Record(String username, int record) {
+        this.username = username;
+        this.record = record;
     }
 
     public String getUsername() {
@@ -26,11 +36,6 @@ public class Record {
     }
 
     public void setRecord(int record) {
-        this.record = record;
-    }
-
-    public Record(String username, int record) {
-        this.username = username;
         this.record = record;
     }
 

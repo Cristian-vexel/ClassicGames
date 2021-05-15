@@ -33,6 +33,11 @@ public class gameMenuController {
     }
 
     @FXML
+    public void start(MouseEvent event) throws Exception {
+        ViewRecordController.start(event);
+    }
+
+    @FXML
     public void handleButtonActionLogOut(MouseEvent event) throws IOException {
         RegistrationController.switchToRegistrationScene(event);
     }
