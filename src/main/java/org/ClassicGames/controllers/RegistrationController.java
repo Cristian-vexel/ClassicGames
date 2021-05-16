@@ -44,6 +44,7 @@ public class RegistrationController {
 
         root = FXMLLoader.load(RegistrationController.class.getClassLoader().getResource("register.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Classic Games - login");
         scene = new Scene(root, 800, 600);
         stage.setScene(scene);
         stage.show();
