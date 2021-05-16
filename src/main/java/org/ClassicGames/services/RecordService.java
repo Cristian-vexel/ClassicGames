@@ -10,6 +10,7 @@ import org.dizitart.no2.util.StringUtils;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.Objects;
 
 import static org.ClassicGames.services.FileSystemService.getPathToFile;
@@ -33,5 +34,7 @@ public class RecordService {
         recordRepository.insert(new Record(username, score));
     }
 
-
+    public static List<Record> getAllRecords() {
+        return recordRepository.find().toList();
+    }
 }
