@@ -22,7 +22,10 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import org.ClassicGames.controllers.*;
+import org.ClassicGames.model.User;
 import org.ClassicGames.services.FileSystemService;
+
+import static org.ClassicGames.services.RecordService.addRecord;
 
 public class snake {
     private Stage stage;
@@ -195,6 +198,9 @@ public class snake {
 	}
 
 	private void stopGame() { // 2nd function stopping
+
+		addRecord(User.getLoggedUserName(),score);
+
 		running = false;
 		timeline.stop();
 	}

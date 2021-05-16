@@ -12,6 +12,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.ClassicGames.model.Record;
+import org.ClassicGames.services.RecordService;
+
+import java.util.ArrayList;
 
 public class ViewRecordController {
 
@@ -37,16 +40,21 @@ public class ViewRecordController {
         usernameColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
         recordColumn.setCellValueFactory(new PropertyValueFactory<>("record"));
 
-        userTable.setItems(users);
+        userTable.setItems(getRecords());
     }
 
     private ObservableList<Record> users = FXCollections.observableArrayList(
-            new Record("John",15 ),
-            new Record("Jane", 87),
-            new Record("Jack", 65),
-            new Record("Julia", 12),
-            new Record("Johnny", 77),
-            new Record("Michelle", 3)
+
     );
+
+    private ArrayList<Record> list = new ArrayList<>();
+
+    private ObservableList<Record> getRecords(){
+        for(Record re : RecordService.getRecordRepository().find())
+            list.add(re);
+
+        users.addAll(list);
+        return users;
+    }
 }
 

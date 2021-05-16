@@ -15,6 +15,10 @@ import java.util.Objects;
 import static org.ClassicGames.services.FileSystemService.getPathToFile;
 
 public class RecordService {
+    public static ObjectRepository<Record> getRecordRepository() {
+        return recordRepository;
+    }
+
     private static ObjectRepository<Record> recordRepository;
 
     public static void initDatabase() {
@@ -25,7 +29,9 @@ public class RecordService {
                 recordRepository = database.getRepository(Record.class);
     }
 
-    public static void addUser(String username, int score){
+    public static void addRecord(String username, int score){
         recordRepository.insert(new Record(username, score));
     }
+
+
 }

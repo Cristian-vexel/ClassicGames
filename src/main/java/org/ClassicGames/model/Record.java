@@ -22,6 +22,9 @@ public class Record {
         this.username = username;
         this.record = record;
     }
+    public Record(){
+
+    }
 
     public String getUsername() {
         return username;
