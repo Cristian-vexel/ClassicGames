@@ -10,6 +10,15 @@ public class User {
     private String password;
     private String role;
     private static String loggedUserRole;
+    private static String loggedUserName;
+
+    public static String getLoggedUserName() {
+        return loggedUserName;
+    }
+
+    public static void setLoggedUserName(String loggedUserName) {
+        User.loggedUserName = loggedUserName;
+    }
 
     public User(String username, String password, String role) {
         this.username = username;

@@ -68,6 +68,7 @@ public class RegistrationController {
             registrationMessage.setText("Successfully logged in!");
 
             User.setLoggedUserRole( (String) role.getValue());
+            User.setLoggedUserName((String) usernameField.getText());
             gameMenuController.switchToMenuScene(event);
 
         } catch (LogInFailException e) {

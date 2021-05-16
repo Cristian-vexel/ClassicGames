@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.ClassicGames.services.FileSystemService;
+import org.ClassicGames.services.RecordService;
 import org.ClassicGames.services.UserService;
 
 import java.nio.file.Files;
@@ -17,6 +18,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         initDirectory();
         UserService.initDatabase();
+        RecordService.initDatabase();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
         primaryStage.setTitle("Classic Games - login");
         primaryStage.setScene(new Scene(root, 800, 600));
