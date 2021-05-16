@@ -12,7 +12,7 @@
     </padding>
     <VBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
         <Button fx:id="adminPanelButton" onMouseClicked="#handleButtonAdminPanel" prefWidth="100" text="Admin Panel"/>
-        <Button onMouseClicked="#handleButtonActionSnake" prefWidth="100" text="Start Game"/>
+        <Button onMouseClicked="#handleButtonActionSnake" id="playSnake" prefWidth="100" text="Start Game"/>
         <Button onMouseClicked="#start" prefWidth="100" text="Records"/>
         <Button onMouseClicked="#handleButtonActionLogOut" prefWidth="100"  text="Log Out"/>
         <Button onMouseClicked="#handleButtonActionExit" prefWidth="100"  text="Exit"/>
