@@ -16,6 +16,7 @@ import org.ClassicGames.model.User;
 
 public class gameMenuController {
 
+    @FXML
     public static void switchToMenuScene(MouseEvent event) throws IOException {
         Stage stage;
         Scene scene;
