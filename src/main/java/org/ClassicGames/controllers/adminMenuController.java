@@ -34,6 +34,7 @@ public class adminMenuController {
 
         root = FXMLLoader.load(adminMenuController.class.getClassLoader().getResource("adminMenu.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Classic Games - admin menu");
         scene = new Scene(root, 800, 600);
         stage.setScene(scene);
         stage.show();

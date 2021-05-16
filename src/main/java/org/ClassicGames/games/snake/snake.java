@@ -52,6 +52,10 @@ public class snake {
 	private Pane rootGameOver;
 	private static Pane rootPause;
 
+	public int getScore(){
+		return score;
+	}
+
     public void GameStarting(MouseEvent event) throws IOException{
 		FileSystemService.loadSettingsFromFile();
 
