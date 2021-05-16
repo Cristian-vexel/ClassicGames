@@ -9,6 +9,7 @@ import org.dizitart.no2.util.StringUtils;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.Objects;
 
 import static org.ClassicGames.services.FileSystemService.getPathToFile;
@@ -18,6 +19,7 @@ public class UserService {
     private static ObjectRepository<User> userRepository;
 
     public static void initDatabase() {
+        FileSystemService.initDirectory();
         Nitrite database = Nitrite.builder()
                 .filePath(getPathToFile("ClassicGames.db").toFile())
                 .openOrCreate("admin", "admin");
@@ -30,6 +32,10 @@ public class UserService {
         checkFieldsAreNotBlank(username, password, role);
         checkUserDoesNotAlreadyExist(username);
         userRepository.insert(new User(username, encodePassword(username, password), role));
+    }
+
+    public static List<User> getAllUsers() {
+        return userRepository.find().toList();
     }
 
     public static void logIn(String username, String password, String role) throws LogInFailException,
@@ -64,7 +70,7 @@ public class UserService {
         }
     }
 
-    private static String encodePassword(String salt, String password) {
+    public static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
 
